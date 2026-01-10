@@ -13,9 +13,9 @@
       color: #333;
     }
 
-    /* NAVBAR */
+    /* NAVIGATION */
     nav {
-      background-color: rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.3);
       padding: 15px;
       text-align: center;
     }
@@ -37,7 +37,7 @@
 
     header h1 {
       font-size: 40px;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
 
     header p {
@@ -88,7 +88,13 @@
       color: white;
       padding: 10px 20px;
       border-radius: 20px;
+      cursor: pointer;
+      border: none;
       font-size: 14px;
+    }
+
+    .tab-content {
+      margin-top: 20px;
     }
 
     /* PROJECTS */
@@ -127,7 +133,7 @@
 
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- NAV -->
   <nav>
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
@@ -146,6 +152,7 @@
   <!-- ABOUT -->
   <section id="about">
     <h2>About Me</h2>
+
     <div class="about-container">
       <img src="profile.jpg" alt="Busisiwe Motlhale">
 
@@ -162,18 +169,38 @@
           analysis, using data to support informed decision-making.
         </p>
 
+        <!-- TABS -->
         <div class="tabs">
-          <div class="tab">Python</div>
-          <div class="tab">R</div>
-          <div class="tab">SQL</div>
-          <div class="tab">Power BI</div>
-          <div class="tab">Excel</div>
-          <div class="tab">Pandas</div>
-          <div class="tab">NumPy</div>
-          <div class="tab">Matplotlib</div>
-          <div class="tab">Statistics</div>
-          <div class="tab">Basic Machine Learning</div>
+          <button class="tab" onclick="openTab('skills')">Skills</button>
+          <button class="tab" onclick="openTab('education')">Education</button>
+          <button class="tab" onclick="openTab('certs')">Certifications</button>
         </div>
+
+        <!-- TAB CONTENT -->
+        <div id="skills" class="tab-content">
+          <ul>
+            <li>Python, R, SQL</li>
+            <li>Power BI & Microsoft Excel</li>
+            <li>Pandas, NumPy, Matplotlib</li>
+            <li>Statistical Analysis</li>
+            <li>Basic Machine Learning</li>
+          </ul>
+        </div>
+
+        <div id="education" class="tab-content" style="display:none;">
+          <p>
+            <strong>BSc in Data Science</strong><br>
+            Sol Plaatje University (Final Year)
+          </p>
+        </div>
+
+        <div id="certs" class="tab-content" style="display:none;">
+          <ul>
+            <li>HP Life – Data Science & Analytics</li>
+            <li>HP Life – Critical Thinking in the AI Era</li>
+          </ul>
+        </div>
+
       </div>
     </div>
   </section>
@@ -195,7 +222,7 @@
       <div class="project-card">
         <h3>Hospital Bed Occupancy Analysis</h3>
         <p>
-          Used R to analyse hospital bed occupancy trends and support efficient
+          Used R to analyse hospital bed occupancy trends to support efficient
           healthcare resource planning.
         </p>
       </div>
@@ -225,6 +252,17 @@
   <footer>
     <p>© 2026 Busisiwe Beuty Motlhale | Data Science Portfolio</p>
   </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    function openTab(tabName) {
+      const contents = document.getElementsByClassName("tab-content");
+      for (let i = 0; i < contents.length; i++) {
+        contents[i].style.display = "none";
+      }
+      document.getElementById(tabName).style.display = "block";
+    }
+  </script>
 
 </body>
 </html>
