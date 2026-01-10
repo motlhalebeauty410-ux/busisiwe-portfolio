@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Busisiwe Motlhale | Data Science Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #5f2c82, #49a09d);
+      color: #333;
+    }
+
+    /* NAVBAR */
+    nav {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    /* HEADER */
+    header {
+      text-align: center;
+      padding: 100px 20px;
+      color: white;
+    }
+
+    header h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    header p {
+      font-size: 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    /* SECTIONS */
+    section {
+      background: white;
+      margin: 40px auto;
+      padding: 40px;
+      max-width: 1000px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    h2 {
+      color: #5f2c82;
+      margin-bottom: 20px;
+    }
+
+    /* ABOUT */
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .about-container img {
+      width: 250px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    /* TABS */
+    .tabs {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      background: #49a09d;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+
+    /* PROJECTS */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: #f5f5f5;
+      padding: 25px;
+      border-radius: 15px;
+    }
+
+    .project-card h3 {
+      color: #5f2c82;
+    }
+
+    /* CONTACT */
+    .contact a {
+      display: block;
+      margin: 10px 0;
+      color: #49a09d;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- HOME -->
+  <header>
+    <h1>Hello, I’m Busisiwe Beuty Motlhale</h1>
+    <p>
+      Final-year BSc Data Science student at Sol Plaatje University <br>
+      Aspiring Data Scientist & Data Analyst
+    </p>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-container">
+      <img src="profile.jpg" alt="Busisiwe Motlhale">
+
+      <div>
+        <p>
+          Hello! I’m Busisiwe Beuty Motlhale, a final-year BSc Data Science student
+          at Sol Plaatje University with a passion for transforming data into
+          meaningful insights. I am an aspiring Data Scientist and Data Analyst,
+          eager to solve real-world problems using data.
+        </p>
+
+        <p>
+          My academic projects focus on health, insurance, and financial risk
+          analysis, using data to support informed decision-making.
+        </p>
+
+        <div class="tabs">
+          <div class="tab">Python</div>
+          <div class="tab">R</div>
+          <div class="tab">SQL</div>
+          <div class="tab">Power BI</div>
+          <div class="tab">Excel</div>
+          <div class="tab">Pandas</div>
+          <div class="tab">NumPy</div>
+          <div class="tab">Matplotlib</div>
+          <div class="tab">Statistics</div>
+          <div class="tab">Basic Machine Learning</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <div class="projects">
+
+      <div class="project-card">
+        <h3>Health & Insurance Analysis</h3>
+        <p>
+          Analysed Kaggle health and insurance datasets using R to identify
+          patterns affecting insurance costs and health outcomes.
+        </p>
+      </div>
+
+      <div class="project-card">
+        <h3>Hospital Bed Occupancy Analysis</h3>
+        <p>
+          Used R to analyse hospital bed occupancy trends and support efficient
+          healthcare resource planning.
+        </p>
+      </div>
+
+      <div class="project-card">
+        <h3>Loan Default Risk Analysis</h3>
+        <p>
+          Analysed Kaggle financial datasets using R to assess loan default risk
+          and identify key contributing factors.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+
+    <a href="mailto:motlhalebeauty410@gmail.com">📧 Email: motlhalebeauty410@gmail.com</a>
+    <a href="tel:+27797069971">📞 Phone: +27 79 706 9971</a>
+    <a href="https://www.linkedin.com/in/beauty-motlhale-13408b239" target="_blank">🔗 LinkedIn</a>
+    <a href="https://github.com/motlhalebeauty410-ux" target="_blank">💻 GitHub</a>
+    <a href="Busisiwe_Motlhale_CV.pdf" download>📄 Download CV</a>
+  </section>
+
+  <footer>
+    <p>© 2026 Busisiwe Beuty Motlhale | Data Science Portfolio</p>
+  </footer>
+
+</body>
+</html>
