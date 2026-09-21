@@ -1,295 +1,1458 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Busisiwe Motlhale | Data Science Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(135deg, #5f2c82, #49a09d);
-      color: #333;
+<title>Busisiwe Motlhale | Data Science Portfolio</title>
+
+<meta name="description" content="Busisiwe Motlhale — BSc Data Science student, data analyst and machine learning portfolio.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --pink: #e83e8c;
+    --hot-pink: #ff4fa3;
+    --wine: #65143d;
+    --dark: #20131b;
+    --muted: #705b67;
+    --cream: #fff8fc;
+    --white: #ffffff;
+    --line: #f1dce7;
+    --shadow: 0 22px 70px rgba(101,20,61,.13);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    color: var(--dark);
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            var(--cream) 48%,
+            #ffffff 100%
+        );
+    line-height: 1.7;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: min(1160px, 92%);
+    margin: auto;
+}
+
+/* NAVIGATION */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(241,220,231,.8);
+}
+
+.nav-inner {
+    min-height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.logo {
+    font-family: "Playfair Display", serif;
+    font-size: 1.4rem;
+    color: var(--wine);
+}
+
+.logo span {
+    color: var(--pink);
+}
+
+.nav-links {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    font-size: .9rem;
+    font-weight: 600;
+    color: #634f5a;
+}
+
+.nav-links a {
+    transition: .25s;
+}
+
+.nav-links a:hover {
+    color: var(--pink);
+}
+
+/* HERO */
+
+.hero {
+    min-height: 88vh;
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    align-items: center;
+    gap: 60px;
+    padding: 90px 0 70px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero:before {
+    content: "";
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,79,163,.23),
+            transparent 68%
+        );
+    right: -170px;
+    top: -120px;
+    pointer-events: none;
+}
+
+.eyebrow {
+    color: var(--pink);
+    font-weight: 800;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    font-size: .78rem;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.15;
+}
+
+h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(3rem, 7vw, 6.2rem);
+    letter-spacing: -.045em;
+    margin: 15px 0 22px;
+}
+
+.gradient {
+    background:
+        linear-gradient(
+            100deg,
+            var(--wine),
+            var(--pink),
+            #b51d68
+        );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    font-size: 1.12rem;
+    color: var(--muted);
+    max-width: 650px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 13px 20px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    font-weight: 700;
+    transition: .25s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+}
+
+.btn.primary {
+    background:
+        linear-gradient(
+            135deg,
+            var(--wine),
+            var(--pink)
+        );
+    color: white;
+    border: none;
+    box-shadow: 0 12px 30px rgba(232,62,140,.25);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(101,20,61,.14);
+}
+
+/* PROFILE */
+
+.profile-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-card {
+    width: min(390px,100%);
+    padding: 15px;
+    border-radius: 34px;
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #fff0f7
+        );
+    box-shadow: var(--shadow);
+    border: 1px solid #fff;
+}
+
+.profile-card img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 25px;
+    background: #f6d9e8;
+}
+
+/* SECTIONS */
+
+.section {
+    padding: 95px 0;
+}
+
+.section-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 35px;
+}
+
+.kicker {
+    color: var(--pink);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .13em;
+    font-size: .75rem;
+}
+
+h2 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    color: var(--wine);
+    margin-top: 8px;
+}
+
+.section-head p {
+    max-width: 540px;
+    color: var(--muted);
+}
+
+/* CARDS */
+
+.grid {
+    display: grid;
+    gap: 22px;
+}
+
+.two {
+    grid-template-columns: repeat(2,1fr);
+}
+
+.three {
+    grid-template-columns: repeat(3,1fr);
+}
+
+.card {
+    background: rgba(255,255,255,.82);
+    border: 1px solid var(--line);
+    border-radius: 25px;
+    padding: 28px;
+    box-shadow: 0 12px 35px rgba(101,20,61,.07);
+    transition: .25s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.quote {
+    font-family: "Playfair Display", serif;
+    font-size: 1.45rem;
+    color: var(--wine);
+}
+
+/* STATS */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 15px;
+    margin-top: 28px;
+}
+
+.stat {
+    padding: 20px;
+    border-radius: 20px;
+    background: #fff;
+    border: 1px solid var(--line);
+}
+
+.stat strong {
+    display: block;
+    font-size: 1.65rem;
+    color: var(--pink);
+}
+
+.stat span {
+    font-size: .85rem;
+    color: var(--muted);
+}
+
+/* PROJECTS */
+
+.project {
+    padding: 0;
+    overflow: hidden;
+}
+
+.project img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    background: #f8d9e8;
+}
+
+.project-body {
+    padding: 28px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #fff0f7;
+    color: var(--wine);
+    font-size: .75rem;
+    font-weight: 800;
+    margin: 4px 4px 4px 0;
+}
+
+.project h3 {
+    font-size: 1.45rem;
+    color: var(--wine);
+    margin: 8px 0;
+}
+
+.project p {
+    color: var(--muted);
+}
+
+.project ul {
+    margin: 16px 0 0 18px;
+    color: #5d4b55;
+}
+
+/* TIMELINE */
+
+.timeline {
+    position: relative;
+    margin-left: 10px;
+    padding-left: 28px;
+    border-left: 2px solid #efc8da;
+}
+
+.timeline-item {
+    position: relative;
+    padding: 0 0 35px;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-item:before {
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--pink);
+    left: -36px;
+    top: 7px;
+    box-shadow: 0 0 0 6px #ffe8f3;
+}
+
+.timeline-item h3 {
+    color: var(--wine);
+    font-size: 1.2rem;
+}
+
+.timeline-item small {
+    color: var(--pink);
+    font-weight: 800;
+}
+
+/* SKILLS */
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill {
+    padding: 11px 15px;
+    border-radius: 14px;
+    background: white;
+    border: 1px solid var(--line);
+    font-weight: 700;
+    color: #543d49;
+}
+
+/* CONTACT */
+
+.contact {
+    background:
+        linear-gradient(
+            135deg,
+            #fff0f7,
+            #fff
+        );
+    border: 1px solid var(--line);
+    border-radius: 35px;
+    padding: 50px;
+    box-shadow: var(--shadow);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.contact a {
+    color: var(--wine);
+    font-weight: 700;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 35px 0;
+    color: #806b76;
+    text-align: center;
+    font-size: .9rem;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:850px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding-top: 60px;
     }
 
-    /* NAVIGATION */
-    nav {
-      background: rgba(0, 0, 0, 0.3);
-      padding: 15px;
-      text-align: center;
+    .profile-wrap {
+        order: -1;
     }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      font-size: 16px;
+    .nav-inner {
+        padding: 12px 0;
+        align-items: flex-start;
     }
 
-    /* HEADER */
-    header {
-      text-align: center;
-      padding: 100px 20px;
-      color: white;
+    .nav-links {
+        justify-content: flex-end;
+        gap: 10px;
     }
 
-    header h1 {
-      font-size: 40px;
-      margin-bottom: 10px;
+    .two,
+    .three,
+    .contact-grid {
+        grid-template-columns: 1fr;
     }
 
-    header p {
-      font-size: 20px;
-      max-width: 700px;
-      margin: auto;
+    .section-head {
+        display: block;
     }
 
-    /* SECTIONS */
-    section {
-      background: white;
-      margin: 40px auto;
-      padding: 40px;
-      max-width: 1000px;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    .stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:520px) {
+
+    h1 {
+        font-size: 3.25rem;
     }
 
-    h2 {
-      color: #5f2c82;
-      margin-bottom: 20px;
+    .hero {
+        gap: 35px;
     }
 
-    /* ABOUT */
-    .about-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      align-items: center;
+    .section {
+        padding: 70px 0;
     }
 
-    .about-container img {
-      width: 250px;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    .contact {
+        padding: 30px 22px;
     }
 
-    /* TABS */
-    .tabs {
-      margin-top: 20px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+    .nav-links {
+        font-size: .78rem;
     }
+}
 
-    .tab {
-      background: #49a09d;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 20px;
-      cursor: pointer;
-      border: none;
-      font-size: 14px;
-    }
-
-    .tab-content {
-      margin-top: 20px;
-    }
-
-    /* PROJECTS */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .project-card {
-      background: #f5f5f5;
-      padding: 25px;
-      border-radius: 15px;
-    }
-
-    .project-card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    .project-card h3 {
-      color: #5f2c82;
-    }
-
-    .project-card a {
-      display: inline-block;
-      margin-top: 10px;
-      color: #49a09d;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    /* CONTACT */
-    .contact a {
-      display: block;
-      margin: 10px 0;
-      color: #49a09d;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: white;
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<!-- NAVIGATION -->
 
-  <!-- HOME -->
-  <header>
-    <h1>Hello, I’m Busisiwe Beuty Motlhale</h1>
-    <p>
-      Final-year BSc Data Science student at Sol Plaatje University <br>
-      Aspiring Data Scientist & Data Analyst
-    </p>
-  </header>
+<nav>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <h2>About Me</h2>
+<div class="container nav-inner">
 
-    <div class="about-container">
-      <img src="profile.jpg" alt="Busisiwe Motlhale">
+<a class="logo" href="#top">
+    Busisiwe<span>.</span>
+</a>
 
-      <div>
-        <p>
-          Hello! I’m Busisiwe Beuty Motlhale, a final-year BSc Data Science student
-          at Sol Plaatje University with a passion for transforming data into
-          meaningful insights. I am an aspiring Data Scientist and Data Analyst,
-          eager to solve real-world problems using data.
-        </p>
+<div class="nav-links">
 
-        <p>
-          My academic projects focus on health, insurance, and financial risk
-          analysis, using data to support informed decision-making.
-        </p>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#experience">Experience</a>
+<a href="#credentials">Credentials</a>
+<a href="#achievements">Achievements</a>
+<a href="#contact">Contact</a>
 
-        <!-- TABS -->
-        <div class="tabs">
-          <button class="tab" onclick="openTab('skills')">Skills</button>
-          <button class="tab" onclick="openTab('education')">Education</button>
-          <button class="tab" onclick="openTab('certs')">Certifications</button>
-        </div>
+</div>
 
-        <!-- TAB CONTENT -->
-        <div id="skills" class="tab-content">
-          <ul>
-            <li>Python, R, SQL</li>
-            <li>Power BI & Microsoft Excel</li>
-            <li>Pandas, NumPy, Matplotlib</li>
-            <li>Statistical Analysis</li>
-            <li>Basic Machine Learning</li>
-          </ul>
-        </div>
+</div>
 
-        <div id="education" class="tab-content" style="display:none;">
-          <p>
-            <strong>BSc in Data Science</strong><br>
-            Sol Plaatje University (Final Year)
-          </p>
-        </div>
+</nav>
 
-        <div id="certs" class="tab-content" style="display:none;">
-          <ul>
-            <li>HP Life – Data Science & Analytics</li>
-            <li>HP Life – Critical Thinking in the AI Era</li>
-          </ul>
-        </div>
 
-      </div>
-    </div>
-  </section>
+<main id="top">
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h2>Projects</h2>
 
-    <div class="projects">
+<!-- HERO -->
 
-      <div class="project-card">
-        <img src="health.png" alt="Health project">
-        <h3>Health & Insurance Analysis</h3>
-        <p>
-          Analysed Kaggle health and insurance datasets using R to identify
-          patterns affecting insurance costs and health outcomes.
-        </p>
-        <a href="https://github.com/motlhalebeauty410-ux" target="_blank">
-          🔗 View on GitHub
-        </a>
-      </div>
+<section class="hero container">
 
-      <div class="project-card">
-        <img src="hospital.png" alt="Hospital project">
-        <h3>Hospital Bed Occupancy Analysis</h3>
-        <p>
-          Used R to analyse hospital bed occupancy trends to support efficient
-          healthcare resource planning.
-        </p>
-        <a href="https://github.com/motlhalebeauty410-ux" target="_blank">
-          🔗 View on GitHub
-        </a>
-      </div>
+<div>
 
-      <div class="project-card">
-        <img src="loan.png" alt="Loan project">
-        <h3>Loan Default Risk Analysis</h3>
-        <p>
-          Analysed Kaggle financial datasets using R to assess loan default risk
-          and identify key contributing factors.
-        </p>
-        <a href="https://github.com/motlhalebeauty410-ux" target="_blank">
-          🔗 View on GitHub
-        </a>
-      </div>
+<div class="eyebrow">
+Data Science • Analytics • Machine Learning
+</div>
 
-    </div>
-  </section>
+<h1>
+Busisiwe
+<span class="gradient">Motlhale</span>
+</h1>
 
-  <!-- CONTACT -->
-  <section id="contact" class="contact">
-    <h2>Contact Me</h2>
+<p>
+Final-year BSc Data Science student at Sol Plaatje University,
+building practical data products that turn complex data into
+clear, useful insights.
+</p>
 
-    <a href="mailto:motlhalebeauty410@gmail.com">📧 Email: motlhalebeauty410@gmail.com</a>
-    <a href="tel:+27797069971">📞 Phone: +27 79 706 9971</a>
-    <a href="https://www.linkedin.com/in/beauty-motlhale-13408b239" target="_blank">🔗 LinkedIn</a>
-    <a href="https://github.com/motlhalebeauty410-ux" target="_blank">💻 GitHub</a>
-    <a href="Busisiwe_Motlhale_CV.pdf" download>📄 Download CV</a>
-  </section>
+<div class="buttons">
 
-  <footer>
-    <p>© 2026 Busisiwe Beuty Motlhale | Data Science Portfolio</p>
-  </footer>
+<a class="btn primary" href="#projects">
+Explore My Work →
+</a>
 
-  <!-- SCRIPT -->
-  <script>
-    function openTab(tabName) {
-      const contents = document.getElementsByClassName("tab-content");
-      for (let i = 0; i < contents.length; i++) {
-        contents[i].style.display = "none";
-      }
-      document.getElementById(tabName).style.display = "block";
-    }
-  </script>
+<a class="btn"
+href="assets/documents/Busisiwe_Motlhale_CV.docx"
+download>
+Download CV
+</a>
+
+<a class="btn"
+href="https://github.com/motlhalebeauty410-ux"
+target="_blank">
+GitHub
+</a>
+
+<a class="btn"
+href="https://www.linkedin.com/in/beauty-motlhale-13408b239"
+target="_blank">
+LinkedIn
+</a>
+
+</div>
+
+</div>
+
+
+<div class="profile-wrap">
+
+<div class="profile-card">
+
+<img
+src="assets/images/Busisiwe_Motlhale_Profile.jpg"
+alt="Busisiwe Motlhale"
+>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+
+<div class="kicker">
+01 / About
+</div>
+
+<h2>
+Turning data into meaningful decisions.
+</h2>
+
+</div>
+
+<p>
+My focus is on analytics, machine learning, visualisation
+and interactive data applications — with an emphasis on
+practical problem solving.
+</p>
+
+</div>
+
+
+<div class="grid two">
+
+
+<div class="card">
+
+<p class="quote">
+“I want my work to make data easier to understand,
+easier to explore, and more useful for real-world decisions.”
+</p>
+
+
+<div class="stats">
+
+<div class="stat">
+<strong>BSc</strong>
+<span>Data Science</span>
+</div>
+
+<div class="stat">
+<strong>2</strong>
+<span>Featured Projects</span>
+</div>
+
+<div class="stat">
+<strong>∞</strong>
+<span>Curiosity for Data</span>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Career Direction
+</h3>
+
+<p>
+Seeking graduate programmes, internships and entry-level
+opportunities in Data Science, Data Analytics, Machine Learning
+and related analytics roles.
+</p>
+
+
+<div class="skills" style="margin-top:20px">
+
+<span class="skill">Data Science</span>
+<span class="skill">Data Analytics</span>
+<span class="skill">Machine Learning</span>
+<span class="skill">NLP</span>
+<span class="skill">Business Intelligence</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section class="section" id="projects">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+
+<div class="kicker">
+02 / Featured Work
+</div>
+
+<h2>
+Projects with purpose.
+</h2>
+
+</div>
+
+<p>
+Two major portfolio projects demonstrating application
+development, analytics, machine learning and data storytelling.
+</p>
+
+</div>
+
+
+<div class="grid two">
+
+
+<!-- TRACEALERT -->
+
+<article class="card project">
+
+<img
+src="assets/images/TraceAlert.png"
+alt="TraceAlert project"
+>
+
+<div class="project-body">
+
+<span class="tag">R</span>
+<span class="tag">Shiny</span>
+<span class="tag">Fraud Analytics</span>
+
+<h3>
+TraceAlert
+</h3>
+
+<p>
+Interactive financial fraud, account takeover and
+money-flow detection system built with R and Shiny.
+</p>
+
+<ul>
+
+<li>
+Machine-learning fraud probability
+</li>
+
+<li>
+Behavioural anomaly detection and risk scoring
+</li>
+
+<li>
+Customer and transaction investigation
+</li>
+
+<li>
+Money-flow and mule-account intelligence
+</li>
+
+<li>
+Interactive fraud simulator
+</li>
+
+</ul>
+
+
+<div class="buttons">
+
+<a
+class="btn primary"
+href="https://github.com/motlhalebeauty410-ux/TraceAlert"
+target="_blank">
+View on GitHub
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- SAFESPACE -->
+
+<article class="card project">
+
+<img
+src="assets/images/SafeSpace.png"
+alt="SafeSpace project"
+>
+
+<div class="project-body">
+
+<span class="tag">R</span>
+<span class="tag">Shiny</span>
+<span class="tag">NLP</span>
+<span class="tag">Machine Learning</span>
+
+<h3>
+SafeSpace
+</h3>
+
+<p>
+AI-based mental health screening system combining
+PHQ-9 assessment with free-text NLP to support
+structured screening and referral-oriented insights.
+</p>
+
+<ul>
+
+<li>
+PHQ-9 severity classification
+</li>
+
+<li>
+Free-text NLP and text classification
+</li>
+
+<li>
+Risk and recommendation outputs
+</li>
+
+<li>
+Interactive R Shiny dashboard
+</li>
+
+<li>
+Uses synthetic/simulated patient data
+</li>
+
+</ul>
+
+
+<div class="buttons">
+
+<a
+class="btn primary"
+href="https://github.com/motlhalebeauty410-ux"
+target="_blank">
+View Portfolio Projects
+</a>
+
+</div>
+
+</div>
+
+</article>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- EXPERIENCE -->
+
+<section class="section" id="experience">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+
+<div class="kicker">
+03 / Experience & Education
+</div>
+
+<h2>
+Building experience while learning.
+</h2>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="timeline">
+
+
+<div class="timeline-item">
+
+<small>
+2026
+</small>
+
+<h3>
+Future Interns — Data Science & Analytics Intern
+</h3>
+
+<p>
+Completed a one-month unpaid internship focused on
+practical data science and analytics tasks, including
+dashboarding and business analysis.
+</p>
+
+</div>
+
+
+<div class="timeline-item">
+
+<small>
+Current
+</small>
+
+<h3>
+BSc Data Science — Sol Plaatje University
+</h3>
+
+<p>
+Final-year student developing skills across programming,
+statistics, machine learning, databases, visualisation
+and data-driven problem solving.
+</p>
+
+</div>
+
+
+<div class="timeline-item">
+
+<small>
+Next Step
+</small>
+
+<h3>
+Postgraduate Study
+</h3>
+
+<p>
+Planning to continue into postgraduate study after
+completing the BSc.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CREDENTIALS -->
+
+<section class="section" id="credentials">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+
+<div class="kicker">
+04 / Credentials
+</div>
+
+<h2>
+Continuous learning.
+</h2>
+
+</div>
+
+<p>
+Verification links are provided directly where publicly available.
+</p>
+
+</div>
+
+
+<div class="grid three">
+
+
+<div class="card">
+
+<h3>
+Microsoft Certified
+</h3>
+
+<p>
+Power BI Data Analyst Associate — NEMISA
+</p>
+
+<div class="buttons">
+
+<a
+class="btn"
+href="https://mct.nemisa.co.za/shared-certificate/b7f45247b8a74dbfbdc87fc548f34318"
+target="_blank">
+Verify Credential
+</a>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Microsoft Certified
+</h3>
+
+<p>
+Azure Data Scientist Associate
+</p>
+
+<div class="buttons">
+
+<a
+class="btn"
+href="https://www.linkedin.com/in/beauty-motlhale-13408b239"
+target="_blank">
+View on LinkedIn
+</a>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+HP LIFE
+</h3>
+
+<p>
+Data Science and Analytics
+</p>
+
+<div class="buttons">
+
+<a
+class="btn"
+href="https://www.life-global.org/certificate/ff61fe37-6b78-4091-9838-5677e7fba331"
+target="_blank">
+Verify Credential
+</a>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+HP LIFE
+</h3>
+
+<p>
+Critical Thinking in the AI Era
+</p>
+
+<div class="buttons">
+
+<a
+class="btn"
+href="https://www.life-global.org/certificate/3e00675f-dc63-414b-a0ca-2e1b81c7901b"
+target="_blank">
+Verify Credential
+</a>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+SheCodes
+</h3>
+
+<p>
+Introduction to Coding
+</p>
+
+<div class="buttons">
+
+<a
+class="btn"
+href="https://s3.amazonaws.com/shecodesio-production/students/certificates/000/250/019/original/250019.png?1773864593"
+target="_blank">
+View Certificate
+</a>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Future Interns
+</h3>
+
+<p>
+Certificate of Completion — Data Science & Analytics Internship
+</p>
+
+<p style="margin-top:10px;color:var(--muted)">
+Credential ID: FITIAPR26/DS16063
+</p>
+
+<div class="buttons">
+
+<a
+class="btn"
+href="https://www.linkedin.com/in/beauty-motlhale-13408b239"
+target="_blank">
+View on LinkedIn
+</a>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ACHIEVEMENTS -->
+
+<section class="section" id="achievements">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+
+<div class="kicker">
+05 / Achievements
+</div>
+
+<h2>
+Milestones that shaped me.
+</h2>
+
+</div>
+
+</div>
+
+
+<div class="grid three">
+
+
+<div class="card">
+
+<h3>
+Academic Excellence
+</h3>
+
+<p>
+High school Top 10 recognition and an award for
+Best Performing Student in English FAL.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+STEM & Innovation
+</h3>
+
+<p>
+Selected for the Eskom Expo for Young Scientists
+and received a Merit Award.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Leadership & Communication
+</h3>
+
+<p>
+English Olympiad Silver recipient and former
+Deputy President in high school.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- TECHNICAL SKILLS -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+
+<div class="kicker">
+06 / Technical Toolkit
+</div>
+
+<h2>
+Tools I work with.
+</h2>
+
+</div>
+
+</div>
+
+
+<div class="grid two">
+
+
+<div class="card">
+
+<h3>
+Programming & Data
+</h3>
+
+<div class="skills" style="margin-top:18px">
+
+<span class="skill">R</span>
+<span class="skill">Python</span>
+<span class="skill">SQL</span>
+<span class="skill">Excel</span>
+<span class="skill">Git</span>
+<span class="skill">GitHub</span>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Analytics & Development
+</h3>
+
+<div class="skills" style="margin-top:18px">
+
+<span class="skill">Power BI</span>
+<span class="skill">Tableau</span>
+<span class="skill">Machine Learning</span>
+<span class="skill">NLP</span>
+<span class="skill">R Shiny</span>
+<span class="skill">Data Visualisation</span>
+<span class="skill">Predictive Analytics</span>
+<span class="skill">Statistical Analysis</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="section" id="contact">
+
+<div class="container">
+
+<div class="contact">
+
+<div class="section-head" style="margin-bottom:20px">
+
+<div>
+
+<div class="kicker">
+07 / Contact
+</div>
+
+<h2>
+Let’s build with data.
+</h2>
+
+</div>
+
+</div>
+
+
+<p style="color:var(--muted);max-width:700px">
+
+I am open to graduate opportunities, internships,
+entry-level analytics roles and postgraduate opportunities.
+
+</p>
+
+
+<div
+class="contact-grid"
+style="margin-top:28px"
+>
+
+
+<div>
+
+<strong>
+Email
+</strong>
+
+<br>
+
+<a href="mailto:motlhalebeauty410@gmail.com">
+motlhalebeauty410@gmail.com
+</a>
+
+</div>
+
+
+<div>
+
+<strong>
+GitHub
+</strong>
+
+<br>
+
+<a
+href="https://github.com/motlhalebeauty410-ux"
+target="_blank">
+
+github.com/motlhalebeauty410-ux
+
+</a>
+
+</div>
+
+
+<div>
+
+<strong>
+LinkedIn
+</strong>
+
+<br>
+
+<a
+href="https://www.linkedin.com/in/beauty-motlhale-13408b239"
+target="_blank">
+
+linkedin.com/in/beauty-motlhale-13408b239
+
+</a>
+
+</div>
+
+
+<div>
+
+<strong>
+CV
+</strong>
+
+<br>
+
+<a
+href="assets/documents/Busisiwe_Motlhale_CV.docx"
+download>
+
+Busisiwe_Motlhale_CV.docx
+
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+© 2026 Busisiwe Motlhale • Data Science Portfolio
+
+</footer>
+
 
 </body>
 </html>
-
